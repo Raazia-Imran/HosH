@@ -2,6 +2,16 @@
 
 Corporate website for HosH Integrity, built with React, TanStack Start, TypeScript, Tailwind CSS, and Vite. The copy and industrial photographs are drawn from the client-supplied `h2.pptx` and `h3.pptx` company profiles. The spatial illustrations are visual concepts and do not depict a specific client site or measured result.
 
+## Project structure
+
+- `src/routes/`: website pages and page metadata.
+- `src/components/`: shared layout, approved visuals, and interactive sections.
+- `src/lib/site-content.ts`: reusable company copy and service data.
+- `src/assets/` and `public/`: images used by the site, branding, favicon, sitemap, and robots file.
+- `docs/image-provenance.md`: image sources and colorization details.
+
+Unused starter components, unreferenced images, and completed design plans have been removed. The existing dependency manifest, Bun lockfile, Lovable connection, and build/error-handling configuration are retained to preserve the working setup.
+
 ## Run locally
 
 ```sh
