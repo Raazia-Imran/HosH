@@ -1,7 +1,7 @@
 export const site = {
   name: "HosH Integrity",
   url: "https://hoshintegrity.com",
-  shareImage: "/og-image-v2.jpg",
+  shareImage: "/og-image-v3.jpg",
   email: "hoshintegrityinfo@gmail.com",
   location: "Karachi, Pakistan",
   updated: "29 October 2026",

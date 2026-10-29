@@ -1,72 +1,74 @@
-# HosH Integrity website
+<div align="center">
 
-The client approved industrial inspection website, built with React, TanStack Start, TypeScript, Tailwind CSS and Vite. Company capabilities and photographs come from the supplied profiles. Preserve the approved design and the entire `.lovable/` folder.
+<img src="public/og-image-v3.jpg" alt="HosH Integrity. Preventing Failures. Inspection, Integrity and Training." width="880" />
 
-## Current configuration
+# 🛡️ HosH Integrity
 
-The intended public origin is `https://hoshintegrity.com`. The enquiry inbox is `hoshintegrityinfo@gmail.com`, and the confirmed location is Karachi, Pakistan. These details are centralised in `src/lib/site-config.ts`.
+**Preventing Failures**
 
-Work remains in [Raazia-Imran/HosH](https://github.com/Raazia-Imran/HosH). Do not move ownership or change DNS as part of routine content edits. The final client account move is planned after release review. The user selected a separate client repository with copied commit history, leaving the portfolio copy in place. Future production work will use the client repository; the copies will not automatically synchronise.
+Industrial inspection · Technical assurance · Professional training
 
-## Run and verify
+[![Website verification](https://github.com/Raazia-Imran/HosH/actions/workflows/verify.yml/badge.svg?branch=main)](https://github.com/Raazia-Imran/HosH/actions/workflows/verify.yml)
+![Launch in preparation](https://img.shields.io/badge/Launch-In%20preparation-f2b544)
+![React 19](https://img.shields.io/badge/React-19-61dafb)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178c6?logo=typescript&logoColor=white)
 
-Use the committed Bun lockfile for reproducible installation:
+[🌐 Review website](https://hos-h.vercel.app) · [👤 Client guide](docs/README-client.md) · [🧑‍💻 Developer guide](docs/README-developer.md) · [🚀 Launch tracker](docs/launch-checklist.md)
 
-```sh
-bun install --frozen-lockfile
-bun run dev
-bun run lint
-bunx tsc --noEmit
-bun run build
-```
+</div>
 
-Against an already running development or deployed server:
+## 👋 Welcome
 
-```sh
-BASE_URL=http://127.0.0.1:4173 npm run check:site
-```
+The HosH Integrity website presents the company’s inspection services, industries, training, credentials and enquiry options. It uses the client approved design and supplied company material, with layouts for desktop, tablet and mobile.
 
-The site check verifies rendered routes, canonical URLs, metadata, structured data, local assets, contact configuration, sitemap, robots and the 404 response. It does not send an enquiry or prove inbox delivery, browser interaction, visual quality or legal compliance.
+**Current stage:** development and review. The intended public domain is **hoshintegrity.com**. Its client hosting connection, DNS and Search Console setup are still pending. The review address may require Vercel access.
 
-## Project structure
+## 🧭 Choose your guide
 
-| Location | Purpose |
+| I want to… | Start here |
 | --- | --- |
-| `src/routes/` | Page content and route metadata |
-| `src/components/` | Shared layout and approved interactive visuals |
-| `src/lib/site-config.ts` | Final domain, enquiry email and confirmed location |
-| `src/lib/seo.ts` | Canonical, sharing and structured data helpers |
-| `src/lib/site-content.ts` | Company services, training and profile copy |
-| `src/assets/` and `public/` | Approved images, branding, favicon and discovery files |
-| `scripts/check-site.mjs` | Repeatable route and SEO checks |
-| `docs/launch-checklist.md` | Full content, hosting, handoff, DNS, forms and SEO plan |
-| `docs/content-evidence.md` | Confirmed facts and unresolved release decisions |
-| `docs/image-provenance.md` | Photograph sources and colorization details |
+| 👤 Understand the website, ownership and what happens next | [Client README](docs/README-client.md) |
+| 🧑‍💻 Run the code, make changes and verify a release | [Developer README](docs/README-developer.md) |
+| 🚦 Follow every launch task and its evidence | [Master launch checklist](docs/launch-checklist.md) |
+| 📋 Check which business facts are confirmed | [Content evidence](docs/content-evidence.md) |
+| 🖼️ Understand the source of the photographs and sharing card | [Image provenance](docs/image-provenance.md) |
 
-## Release status
+## ✨ Website highlights
 
-Home, Services, Industries, Training, Certifications, About, Contact, FAQ, Insights, Privacy, Terms and Cookies are implemented. Insights provides enquiry planning resources based on the supplied capabilities. Privacy, Terms and Cookies remain `noindex` and outside the sitemap until the operator confirms its identity and practices and approves the notices. They do not display public editorial placeholders.
+| | What is included |
+| --- | --- |
+| 🏭 **Company capabilities** | Service, industry, training and credentials pages based on supplied material |
+| 📱 **Responsive experience** | Desktop, tablet and mobile layouts with accessible navigation |
+| ✉️ **Enquiries** | Contact form and Gmail compose links for the confirmed business inbox |
+| 🍪 **Privacy choices** | First visit banner and footer settings, with optional storage off by default |
+| 🔎 **Search preparation** | Page titles, descriptions, canonical URLs, structured data, robots and sitemap |
+| 🖼️ **Social sharing** | A 1200 × 630 logo and tagline card, without a printed website address |
+| 🛡️ **Release checks** | CI verification, dependency auditing and security response headers |
 
-The enquiry endpoint uses FormSubmit and must be activated and tested by the client. Manrope and Sora fonts are served locally with their font licences. Provider dependencies are disclosed in the notices. No advertising or visitor analytics tags have been added. The website does not process online payments.
+## 🚦 Honest release status
 
-The current Vercel deployment is a development reference, not confirmation that the final client domain has launched. Vercel Hobby is restricted to personal or noncommercial use. Agree a suitable hosting plan for the business site before the final account move. Do not bypass dependency security blocks. TanStack Start is pinned to the security patched version with a committed lockfile.
+🟢 **Done** means verified in the stated environment. 🟡 **In progress** means partly prepared. 🔴 **To do** means not completed.
 
-After pushing, inspect the exact commit’s Vercel status and SonarQube result, and smoke test the deployed pages. A neutral SonarQube result or a quality gate that was not computed is not a passed gate. Never rewrite the published history of the Lovable connected branch.
+| Status | Area | What it means |
+| --- | --- | --- |
+| 🟢 | Website development | Pages, privacy controls and technical SEO are implemented |
+| 🟢 | Previous application verification | Build, types, route checks and responsive browser checks passed; see the tracker for release evidence |
+| 🟢 | Local checks for this revision | Build, types, lint, route checks, sharing metadata and documentation links pass; connected results are recorded by GitHub and Vercel |
+| 🟡 | SonarQube | Latest recorded result is “Quality Gate not computed”, not a passed gate |
+| 🟡 | Enquiry delivery | Inbox is configured; provider activation and a real delivery test remain |
+| 🔴 | Client production launch | Client repository, suitable hosting, DNS, HTTPS and GSC verification remain |
 
-See [the full launch checklist](docs/launch-checklist.md) for the release sequence, blockers, source references and account handoff procedure. Search optimisation supports discovery but cannot guarantee a first place ranking.
+The workflow badge shows the current GitHub check. It does not certify every provider setting, legal requirement or final domain behaviour. SEO cannot guarantee first place on Google.
 
-## Privacy controls and application security
+## 🤝 Ownership and handoff
 
-The first visit banner and footer Cookie settings dialog control optional navigation storage. It is off by default. The essential preference records a version, choice and timestamp for up to 180 days. Rejecting optional storage clears the router session entry, and changing the navigation choice reloads the page. No advertising or analytics scripts are installed. Adding one requires revisiting consent and policy behaviour.
+Development currently lives in **[Raazia-Imran/HosH](https://github.com/Raazia-Imran/HosH)**. At the agreed release stage, a separate repository in **hoshintegrityinfo-gif** will receive the agreed full Git history. The client repository then becomes the source for production and future maintenance. The portfolio copy remains separate under the client agreement and does not automatically synchronise.
 
-SSR documents use a new CSP nonce per request, with strict script loading, no embedding and no object content. HTML is private and not cached so document nonces are not reused through a shared cache. Security headers also disable camera, microphone and geolocation access. Development mode allows the editor tools to work. These measures do not replace account access controls or prove universal legal compliance.
+The website represents **HosH Integrity**, with the confirmed contact **hoshintegrityinfo@gmail.com** and location **Karachi, Pakistan**. Repository maintenance is under the Raazia-Imran GitHub account. Public repository visibility does not grant a general licence to reuse the client branding, content or photographs.
 
-GitHub Actions runs installation from the committed lockfile, lint, types, dependency audit, a production build and route/security checks on main pushes and pull requests. Actions have read access and no deployment secrets. Dependabot checks weekly and opens update pull requests without automatically merging them. GitHub account security and branch rules must be configured separately with the correct owner.
+> [!IMPORTANT]
+> Preserve the approved design, the complete `.lovable/` folder and published Git history. Keep account passwords, tokens and recovery codes out of the repository.
 
-For security headers, run the checker against a production build:
+## 🚀 Continue the project
 
-```sh
-BASE_URL=http://127.0.0.1:4186 CHECK_SECURITY=1 npm run check:site
-```
-
-The Gmail links open a compose page for the confirmed inbox. Browsers control whether Gmail opens as an app or a web page. The Contact page also offers a default email app link. Social metadata uses `/og-image-v2.jpg`, a 1200 by 630 card containing the original supplied logo and tagline. Public platform fetching must be tested after the client domain is connected.
+Start with [the next actions in the launch tracker](docs/launch-checklist.md#next-actions-for-the-current-work-session). The client guide explains those actions in everyday language; the developer guide contains commands and release procedures.

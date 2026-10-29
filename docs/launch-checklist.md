@@ -31,6 +31,29 @@ For each task, record the owner, date, exact account or environment, release com
 
 The user selected an independent client repository with full copied Git history, to be created at the final handoff. Development review of legal text is authorised. Missing factual details and suitable hosting still need resolution in Steps 01 and 02. The current review deployment is not the client account deployment. Source work stays in Raazia-Imran/HosH until the agreed final handoff stage.
 
+## Next actions for the current work session
+
+| Order | Status | Action | Evidence needed |
+| --- | --- | --- | --- |
+| 1 | 🟢 Done | Remove the printed address from the sharing card | New versioned artwork in public/og-image-v3.jpg; active metadata and checks updated |
+| 2 | 🟢 Done | Add clear documentation for both audiences | Main README links to the developer and client guides, with icons and status labels |
+| 3 | 🟢 Done | Verify the revision locally | Build and types pass; lint has zero errors and three existing warnings; 12 routes, 36 assets, sharing metadata, privacy hydration and 31 documentation links pass |
+| 3a | 🟡 In progress | Review connected quality results | Inspect the exact pushed GitHub and Vercel checks; Sonar has not computed a quality gate and remains open |
+| 4 | 🟡 In progress | Confirm account access and permitted hosting | Client owner and recovery details recorded; business use is permitted by the selected plan |
+| 5 | 🔴 To do | Confirm business facts and test enquiry delivery | Missing factual details resolved and an agreed test message received in the client inbox |
+| 6 | 🔴 To do | Finalise the release and create the client repository | Release SHA, history and agreed branches/tags verified in the standalone client copy |
+| 7 | 🔴 To do | Connect client hosting, domain, DNS and HTTPS | Working client preview, correct DNS records, preserved email records and public HTTPS |
+| 8 | 🔴 To do | Complete GSC, sharing and final SEO checks | Domain ownership, sitemap, URL inspection, public social cards and a dated final domain audit |
+
+The master execution table above remains the full launch sequence. Start with account access and hosting after this artwork and documentation revision is verified. Do not change DNS or create a competing production source during routine development.
+
+### Documentation map
+
+- 🏠 [Project overview](../README.md): a concise introduction and navigation for all readers.
+- 🧑‍💻 [Developer README](README-developer.md): setup, Windows and Bash commands, architecture, verification, privacy behaviour and release procedures.
+- 👤 [Client README](README-client.md): plain language ownership, features, enquiry delivery, launch steps and maintenance handoff.
+- 🚦 This tracker: detailed launch work, evidence and open decisions. Update statuses only when the relevant verification is complete.
+
 ## Account ownership map
 
 | Service | Final owner or location | Developer role | Current evidence |
@@ -219,7 +242,7 @@ If the target contains unrelated commits, stop and reconcile them. Do not force 
 | --- | --- | --- |
 | robots.txt | 🟢 Prepared in code; final host check remains | https://hoshintegrity.com/robots.txt |
 | XML sitemap | 🟢 Prepared in code; final host check remains | https://hoshintegrity.com/sitemap.xml |
-| Social preview image | 🟢 Prepared in code; final host check remains | https://hoshintegrity.com/og-image-v2.jpg |
+| Social preview image | 🟢 Prepared in code; final host check remains | https://hoshintegrity.com/og-image-v3.jpg |
 | Canonical links and sharing metadata | 🟢 Prepared in code | Final origin hoshintegrity.com throughout |
 | Public indexability and headers | 🔴 To do on final client domain | Check page robots tags, HTTP headers, login access and host redirects |
 
@@ -295,8 +318,8 @@ Available reports and settings vary with property type, role, features and colle
 
 🟡 In progress: Open Graph and social card metadata, titles/descriptions and a 1200 × 630 JPEG are already in the source. The image contains the approved HosH logo. The final domain has not been validated for preview fetching yet.
 
-1. Review the new logo and tagline card at `/og-image-v2.jpg`.
-2. Once DNS and HTTPS are working, fetch `https://hoshintegrity.com/og-image-v2.jpg` without a login. Check an HTTP 200 response and an image content type.
+1. Review the new logo and tagline card at `/og-image-v3.jpg`.
+2. Once DNS and HTTPS are working, fetch `https://hoshintegrity.com/og-image-v3.jpg` without a login. Check an HTTP 200 response and an image content type.
 3. Inspect the server rendered source of Home and key pages for `og:title`, `og:description`, `og:type`, `og:url`, `og:image`, image dimensions and image alt text, plus the Twitter card tags.
 4. Confirm image URLs use the final public domain. An image file existing in GitHub is not enough if its public URL is unreachable.
 5. Check redirects, authentication, firewall challenges and crawler blocking for both the page and image.
@@ -440,3 +463,9 @@ The user authorised practical legal notice drafting and selected a standalone hi
 The existing hos-h.vercel.app address is a review project alias. It does not change ownership of hoshintegrity.com. The final domain will point to the selected client hosting project after DNS is configured. Namecheap domain privacy protects public registration details and is separate from hosting, DNS, website privacy controls and HTTPS.
 
 The developer cannot certify universal legal suitability or all provider account security. The notices accurately describe the known website and give the confirmed contact email, without inventing a registered legal entity, street address or business identifiers. Keep unknown facts recorded internally. No paid hosting subscription, DNS change, account transfer or client repository creation is authorised as part of this development release.
+
+## Artwork and documentation revision record
+
+The user requested removal of the printed website address from the sharing card and separate developer and client README guides. The replacement is a new versioned social image URL to distinguish it from cached earlier cards. The original logo, tagline, approved scene and main website design are preserved. Canonical URLs, actual domain links and the enquiry email are unchanged. The main README uses an actual GitHub workflow badge; manual status colours state their scope and do not claim a passed Sonar quality gate or a completed public launch. The guides explain that future production changes use the independent client repository after handoff, without automatic synchronisation to the portfolio copy.
+
+Local verification for this artwork and documentation revision passed: production build, TypeScript, lint with zero errors and three existing React refresh warnings, all 12 page checks with 36 assets, CSP checks, 31 relative documentation links and a browser smoke check for hydration, both sharing image tags and privacy controls. The image dimensions are 1200 × 630. The original logo file, approved page layout files and complete `.lovable/` folder are unchanged. Check the [current verification workflow](https://github.com/Raazia-Imran/HosH/actions/workflows/verify.yml) and the exact release deployment before calling the connected release verified.

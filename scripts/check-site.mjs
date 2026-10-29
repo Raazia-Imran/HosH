@@ -19,7 +19,7 @@ const routes = [
 ];
 const legal = new Set(["/privacy", "/terms", "/cookies"]);
 const assets = new Set([
-  "/og-image-v2.jpg",
+  "/og-image-v3.jpg",
   "/fonts/manrope-latin-5.3.0.woff2",
   "/fonts/sora-latin-5.3.0.woff2",
 ]);
@@ -36,7 +36,7 @@ for (const path of routes) {
   const response = await get(path);
   assert.equal(response.status, 200, path);
   const html = await response.text();
-  assert.ok(html.includes("https://hoshintegrity.com/og-image-v2.jpg"), `${path}: social image`);
+  assert.ok(html.includes("https://hoshintegrity.com/og-image-v3.jpg"), `${path}: social image`);
   assert.ok(
     !html.includes("fonts.googleapis.com") && !html.includes("fonts.gstatic.com"),
     `${path}: local fonts`,
