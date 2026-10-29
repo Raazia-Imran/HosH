@@ -93,7 +93,15 @@ for (const path of routes) {
     assert.ok(!organisation.telephone && !organisation.legalName, "No invented operator details");
   }
   if (path === "/contact") {
-    assert.ok(html.includes(`action="https://formsubmit.co/${email}"`));
+    assert.ok(html.includes('action="https://api.web3forms.com/submit"'));
+    assert.ok(html.includes('name="access_key" value="6194e1b3-dacd-4c99-a643-fc29b8438e0a"'));
+    assert.ok(html.includes('name="botcheck"'));
+    assert.ok(!html.includes("formsubmit.co"));
+    const formCsp = response.headers.get("content-security-policy") || "";
+    if (process.env["CHECK_SECURITY"] === "1") {
+      assert.ok(formCsp.includes("connect-src 'self' https://api.web3forms.com"));
+      assert.ok(formCsp.includes("form-action 'self' https://api.web3forms.com"));
+    }
     assert.ok(html.includes('href="/privacy"') && html.includes('href="/terms"'));
     for (const name of ["name", "company", "email", "service", "message"]) {
       assert.ok(html.includes(`name="${name}"`), `Contact field: ${name}`);
