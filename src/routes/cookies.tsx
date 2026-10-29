@@ -39,7 +39,7 @@ function Cookies() {
         },
         {
           title: "Enquiry form security",
-          body: "Submitting the contact form takes you to FormSubmit. The provider may use cookies and a Google reCAPTCHA check to help prevent automated submissions. You can email HosH directly if you prefer not to use the form.",
+          body: "Submitting the contact form sends your entries to the Web3Forms API while you remain on this website. The form uses a hidden honeypot field and provider spam checks. No external CAPTCHA widget is currently embedded. You can email HosH directly if you prefer not to use the form.",
         },
         {
           title: "Your browser controls",
@@ -58,8 +58,8 @@ function Cookies() {
                 Google Privacy Policy
               </a>{" "}
               and{" "}
-              <a className="underline" href="https://formsubmit.co/privacy.pdf">
-                FormSubmit Privacy Policy
+              <a className="underline" href="https://web3forms.com/privacy">
+                Web3Forms Privacy Policy
               </a>{" "}
               for details of their services.
             </>

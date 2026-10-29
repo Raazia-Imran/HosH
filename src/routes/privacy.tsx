@@ -34,7 +34,7 @@ function Privacy() {
         },
         {
           title: "Form delivery and email",
-          body: "The contact form submits your entries to FormSubmit, which forwards them to the HosH Gmail inbox. Google provides the Gmail service. FormSubmit may use Google reCAPTCHA to help prevent spam. These providers process information under their own terms and privacy notices. If you prefer, you can email HosH directly instead of using the form.",
+          body: "The contact form submits your entries to Web3Forms, which forwards them to the HosH Gmail inbox. Google provides the Gmail service. Web3Forms also processes submission data for spam prevention and may retain submissions for up to three years unless a shorter retention period is configured. These providers process information under their own terms and privacy notices. If you prefer, you can email HosH directly instead of using the form.",
         },
         {
           title: "Browsing data and hosting",

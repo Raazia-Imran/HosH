@@ -137,8 +137,8 @@ export function PrivacyControls() {
           <div>
             <h3>Analytics and advertising</h3>
             <p>
-              Not used by this website. These settings do not control cookies on Gmail, FormSubmit
-              or other sites you choose to visit.
+              Not used by this website. These settings do not control cookies on Gmail, Web3Forms or
+              other sites you choose to visit.
             </p>
           </div>
           <span>Not installed</span>

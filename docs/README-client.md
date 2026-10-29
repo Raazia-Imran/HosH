@@ -41,7 +41,7 @@ The approved design is being preserved. The current review address is **hos-h.ve
 | 🟢 | Revised sharing artwork | Website address removed; logo, tagline and scene retained |
 | 🟢 | Client and developer documentation | Separate guides with clear responsibilities and instructions |
 | 🟢 | Local checks for this revision | Build, page and sharing checks passed; connected results are available in GitHub and the master tracker |
-| 🟡 | Enquiry delivery | Correct inbox is configured; activation and an actual received message still need checking |
+| 🟡 | Enquiry delivery | Correct inbox is configured; an actual received message still needs checking |
 | 🟡 | SonarQube quality check | Latest recorded result did not compute a quality gate |
 | 🔴 | Client repository and hosting | Create and connect them at the agreed final handoff stage |
 | 🔴 | Domain and HTTPS | Connect Namecheap to the selected hosting and verify the public address |
@@ -68,10 +68,10 @@ Use each person’s own account and grant access where possible. Keep recovery i
 
 The business inbox is **hoshintegrityinfo@gmail.com**. Email links open Gmail’s compose screen. Your browser and device decide whether that appears in the Gmail app or on the Gmail website. The Contact page also offers a default email app link.
 
-The form uses **FormSubmit** to forward an enquiry to that inbox. Before relying on the form:
+The form uses **Web3Forms** to forward an enquiry to that inbox. Before relying on the form:
 
 1. Confirm that the inbox owner can open the business email account.
-2. Complete the provider activation if FormSubmit requests it.
+2. Confirm that the Web3Forms form recipient is the client inbox.
 3. Make an agreed test enquiry with ordinary test information.
 4. Check that the message arrives, including Spam, and that the sender can be replied to.
 5. Record the result in the launch checklist.
@@ -82,7 +82,7 @@ A page saying “submitted” is not proof that the email arrived. The developme
 
 Optional navigation storage remembers where a visitor was on a page. It starts **off**. Visitors can leave it off, enable it or change their minds using **Cookie settings** in the footer. Changing this feature reloads the page so the choice can take effect.
 
-The website remembers the visitor’s privacy choice for up to 180 days in that browser. No advertising pixel or visitor analytics tag is currently installed. Fonts are served by the website itself. Gmail, FormSubmit and other external services have their own notices and may use their own cookies.
+The website remembers the visitor’s privacy choice for up to 180 days in that browser. No advertising pixel or visitor analytics tag is currently installed. Fonts are served by the website itself. Gmail, Web3Forms and other external services have their own notices and may use their own cookies.
 
 The [Privacy page](https://hos-h.vercel.app/privacy), [Terms page](https://hos-h.vercel.app/terms) and [Cookies page](https://hos-h.vercel.app/cookies) describe the known website setup. They do not invent a registered company name, street address or registration number. Tell the developer if company information, enquiry handling or service providers change. The notices are not a guarantee that every law in every country has been assessed.
 

@@ -32,7 +32,7 @@ Open the local URL printed by Vite. No production password or provider token is 
 | ⚡ Tooling | Vite and the Lovable TanStack configuration |
 | 📦 Installation | Bun with a committed frozen lockfile |
 | ☁️ Review deployment | Vercel, using the existing connected project |
-| ✉️ Form handling | Browser POST to FormSubmit for the confirmed Gmail inbox |
+| ✉️ Form handling | Browser fetch POST to Web3Forms for the confirmed Gmail inbox |
 | 🔤 Fonts | Locally served Manrope and Sora, with licences in `public/fonts/` |
 
 Vite configuration already includes the required framework plugins through `@lovable.dev/vite-tanstack-config`. Do not install the same plugins a second time. Keep the existing SSR error wrapper and request security handling.
@@ -129,7 +129,7 @@ The prior application release passed 36 page and viewport layout combinations. T
 | Scripts | Production SSR uses a new CSP nonce for each request |
 | Document caching | Private with no store, preventing shared caching of document nonces |
 | Other protections | No framing, no object content, restricted device permissions and response security headers |
-| Form providers | FormSubmit and its external security flow have separate provider terms and cookies |
+| Form providers | Web3Forms and its submission processing have separate provider terms and cookies |
 
 Do not add tracking, embedded services, payments or new storage without updating the notices and consent behaviour. Strict dynamic allows a trusted script to load descendants; an injected parser script without a nonce is the relevant inline script blocking check. Keep production CSP checks separate from editor development behaviour.
 

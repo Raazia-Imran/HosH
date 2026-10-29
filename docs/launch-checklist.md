@@ -17,7 +17,7 @@ For each task, record the owner, date, exact account or environment, release com
 | 03 | 🟢 Done | Complete verified website copy and remove public red editorial notes in the developer repository | Contact, footer, Privacy, Terms, Cookies and Insights updated in release f939e4a |
 | 04 | 🟢 Done | Prepare technical and page SEO in code | Final domain metadata, schema, robots and sitemap pass the development checks |
 | 05 | 🟢 Done | Check the current development release | Build and TypeScript pass, lint has zero errors, responsive and interaction checks pass; developer Vercel deployment READY |
-| 06 | 🟡 In progress | Validate form delivery, privacy choices and final content | New recipient is configured; activation, a real delivery test and client approval remain |
+| 06 | 🟡 In progress | Validate form delivery, privacy choices and final content | New recipient is configured; a real delivery test and client approval remain |
 | 07 | 🔴 To do | Freeze the release and create the client owned repository | Release SHA and agreed branches/tags preserved in the client account |
 | 08 | 🔴 To do | Deploy from client GitHub to the client Vercel workspace | Correct owner, project, branch and plan; build READY and client preview verified |
 | 09 | 🔴 To do | Add the domain in the client Vercel project and update Namecheap DNS | Authoritative DNS contains the exact project records without losing email records |
@@ -62,7 +62,7 @@ The master execution table above remains the full launch sequence. Start with ac
 | Vercel | Client workspace hoshintegrity | Appropriate project access during maintenance | Account link supplied; final project, plan and role verification remain |
 | Namecheap | Client domain account for hoshintegrity.com | Delegated DNS work | Domain and access reported by user; no DNS cutover claimed |
 | Search Console | Client Google account with Domain property hoshintegrity.com | Full user or appropriate delegated permission | Account access reported; website property verification not claimed |
-| Enquiry inbox | hoshintegrityinfo@gmail.com | Test and support only as agreed | New email is in code; live inbox activation and delivery unverified |
+| Enquiry inbox | hoshintegrityinfo@gmail.com | Test and support only as agreed | New email is in code; Web3Forms key configured; inbox delivery unverified |
 | Portfolio repository | Raazia-Imran/HosH | Developer owner | Existing repository retained, subject to the client agreement |
 
 Use separate role based access where each service supports it. Confirm client recovery details and multifactor authentication. Never commit passwords, recovery codes, tokens or inbox contents. No account ownership change is being made by this plan.
@@ -114,21 +114,22 @@ Current credentials means current professional certificates and memberships, wit
 
 ### What the Cookies page currently does
 
-The information page now accompanies a first visit banner and a footer Cookie settings dialog. Optional navigation session storage is off by default. Essential only, Allow navigation storage, Reject optional storage and Save choices work without restricting access to the website. Preferences expire after 180 days. Withdrawal removes the optional router session entry and reloads the page. Fonts are served locally. No advertising or analytics tags are installed. The notices also explain Vercel and the external FormSubmit flow. These settings do not control an external provider’s cookies.
+The information page now accompanies a first visit banner and a footer Cookie settings dialog. Optional navigation session storage is off by default. Essential only, Allow navigation storage, Reject optional storage and Save choices work without restricting access to the website. Preferences expire after 180 days. Withdrawal removes the optional router session entry and reloads the page. Fonts are served locally. No advertising or analytics tags are installed. The notices also explain Vercel and the Web3Forms submission processing. These settings do not control an external provider’s cookies.
 
 The client should review it, together with Privacy and Terms, to confirm the actual business practices, audience and providers. A final browser storage and network audit should check the deployed domain. Whether particular storage or provider features need consent depends on the applicable rules and purpose, not simply on whether the page calls something a cookie. Do not assume a scroll convenience feature is legally essential. A suitable adviser can assess the relevant jurisdictions. If consent controls are needed, implement and test them before enabling the affected technologies. Do not add Google Analytics or an advertising pixel without revisiting this decision.
 
 ## Enquiry delivery and information handling
 
 - 🟢 Done: Point the contact form and visible email links to hoshintegrityinfo@gmail.com.
-- 🟢 Done: Explain FormSubmit delivery and the potential Google reCAPTCHA check next to the form.
+- 🟢 Done: Explain Web3Forms delivery and provider spam checks next to the form.
 - 🟢 Done: Link the Privacy Policy and Website Terms beside the submit action.
 - 🟢 Done: Keep required fields, email validation, length limits and the honeypot.
-- 🔴 To do: Confirm the client approves FormSubmit as the form delivery provider. Provider policies and security expectations must suit the type of enquiries collected.
+- 🔴 To do: Confirm the client approves Web3Forms as the form delivery provider. Provider policies and security expectations must suit the type of enquiries collected.
 - 🔴 To do: Submit one clearly labelled test enquiry on the final domain with the client’s agreement.
-- 🔴 To do: Have the client complete FormSubmit inbox activation. Changing the recipient requires checking activation for the new inbox.
+- 🟢 Done: The client created a Web3Forms form and supplied its public access key.
+- 🔴 To do: Confirm a real message arrives in the client inbox.
 - 🔴 To do: Verify receipt in Gmail, including spam, reply address and all form fields. Form configuration alone does not prove delivery.
-- 🔴 To do: Test a valid submission, invalid email, empty required fields, reCAPTCHA and the provider’s confirmation/error experience on mobile and desktop.
+- 🔴 To do: Test a valid submission, invalid email, empty required fields, spam handling and the confirmation/error experience on mobile and desktop.
 - 🔴 To do: Confirm how the company handles deletion and correction requests and who can access enquiries.
 - 🔴 To do: Decide whether a mailbox on hoshintegrity.com is required. The supplied Gmail inbox can receive enquiries without changing the domain’s MX records.
 - 🔴 To do: If a domain mailbox is added later, use that mail provider’s exact MX, SPF and DKIM instructions. Plan DMARC after verifying legitimate sending. Do not publish a second SPF record or copy Gmail MX records merely because a contact address ends in gmail.com.
@@ -433,8 +434,8 @@ The user authorised practical legal notice drafting and selected a standalone hi
 - [Google Organization structured data](https://developers.google.com/search/docs/appearance/structured-data/organization)
 - [Core Web Vitals](https://developers.google.com/search/docs/appearance/core-web-vitals)
 - [Business Profile guidelines](https://support.google.com/business/answer/3038177)
-- [FormSubmit documentation](https://formsubmit.co/documentation)
-- [FormSubmit privacy information](https://formsubmit.co/privacy.pdf)
+- [Web3Forms documentation](https://docs.web3forms.com/)
+- [Web3Forms privacy information](https://web3forms.com/privacy)
 - [Privacy notice information, with applicability determined by the business’s circumstances](https://ico.org.uk/for-organisations/advice-for-small-organisations/privacy-notices-and-cookies/how-to-write-a-privacy-notice-and-what-goes-in-it)
 
 - [GitHub forks and visibility](https://docs.github.com/en/pull-requests/reference/forks)
@@ -457,7 +458,7 @@ The user authorised practical legal notice drafting and selected a standalone hi
 - 🟢 Implemented: Per request document CSP nonce, security response headers and a published security contact. Dependency patches, a regenerated lockfile, weekly Dependabot proposals and CI verification are prepared. Local build and TypeScript pass; lint has zero errors and three existing warnings; the audit reports no known vulnerabilities. Production checks cover 12 pages and 36 assets, and browser checks cover 36 page and viewport combinations.
 - 🟡 Verification: Inspect the exact pushed commit’s CI, Vercel and SonarQube results. A neutral Sonar result is not a passed gate.
 - 🔴 Account settings: Verify MFA, recovery details, named collaborators, least privilege, branch protection or rulesets where the account plan permits, dependency alerts, secret scanning availability, Vercel deployment access, billing alerts and domain renewal. These require checking each actual client account and are not completed by changing code.
-- 🔴 Enquiries: Activate FormSubmit and confirm a real test arrives in the client inbox. No test message has been sent by the development checks.
+- 🔴 Enquiries: Confirm a real test arrives in the client inbox. No test message has been sent by the development checks.
 - 🔴 Launch: Client repository copy, client hosting, DNS, HTTPS, public social fetching and Search Console remain for the final release stage.
 
 The existing hos-h.vercel.app address is a review project alias. It does not change ownership of hoshintegrity.com. The final domain will point to the selected client hosting project after DNS is configured. Namecheap domain privacy protects public registration details and is separate from hosting, DNS, website privacy controls and HTTPS.
@@ -469,3 +470,12 @@ The developer cannot certify universal legal suitability or all provider account
 The user requested removal of the printed website address from the sharing card and separate developer and client README guides. The replacement is a new versioned social image URL to distinguish it from cached earlier cards. The original logo, tagline, approved scene and main website design are preserved. Canonical URLs, actual domain links and the enquiry email are unchanged. The main README uses an actual GitHub workflow badge; manual status colours state their scope and do not claim a passed Sonar quality gate or a completed public launch. The guides explain that future production changes use the independent client repository after handoff, without automatic synchronisation to the portfolio copy.
 
 Local verification for this artwork and documentation revision passed: production build, TypeScript, lint with zero errors and three existing React refresh warnings, all 12 page checks with 36 assets, CSP checks, 31 relative documentation links and a browser smoke check for hydration, both sharing image tags and privacy controls. The image dimensions are 1200 × 630. The original logo file, approved page layout files and complete `.lovable/` folder are unchanged. Check the [current verification workflow](https://github.com/Raazia-Imran/HosH/actions/workflows/verify.yml) and the exact release deployment before calling the connected release verified.
+
+
+## Web3Forms migration
+
+- 🟢 Client created HosH Website Enquiries and supplied its public form key.
+- 🟢 Replaced the failing FormSubmit integration with Web3Forms, inline submission feedback, timeout handling and spam honeypot.
+- 🟢 Updated the API security allowlist, provider notices and documentation.
+- 🟡 Real inbox delivery remains unverified. Submit a test after deployment and confirm receipt in the client inbox or Spam folder.
+- 🟡 Set the Web3Forms website URL to the final domain after DNS connection; review submission retention in the client dashboard.

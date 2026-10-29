@@ -1,3 +1,4 @@
+import { useRef, useState, type FormEvent } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -21,6 +22,36 @@ export const Route = createFileRoute("/contact")({
 });
 
 function Contact() {
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const sending = useRef(false);
+  async function submitEnquiry(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (sending.current) return;
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    sending.current = true;
+    setStatus("sending");
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 20000);
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: data,
+        signal: controller.signal,
+        credentials: "omit",
+      });
+      const result = await response.json();
+      if (!response.ok || result.success !== true) throw new Error("Submission not accepted");
+      form.reset();
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    } finally {
+      window.clearTimeout(timeout);
+      sending.current = false;
+    }
+  }
   return (
     <SiteShell>
       <section className="inner-hero contact-hero">
@@ -62,16 +93,23 @@ function Contact() {
             visit or a call, please arrange a time by email first.
           </p>
           <div className="email-notice">
-            FormSubmit processes this form and delivers your enquiry to the HosH inbox. Please avoid
+            Web3Forms processes this form and delivers your enquiry to the HosH inbox. Please avoid
             including passwords, identity documents or confidential project files.
           </div>
         </div>
-        <form action={`https://formsubmit.co/${site.email}`} method="POST" className="contact-form">
-          <input type="hidden" name="_subject" value="HosH website enquiry" />
-          <input type="hidden" name="_template" value="table" />
+        <form
+          action="https://api.web3forms.com/submit"
+          method="POST"
+          onSubmit={submitEnquiry}
+          aria-busy={status === "sending"}
+          className="contact-form"
+        >
+          <input type="hidden" name="access_key" value="6194e1b3-dacd-4c99-a643-fc29b8438e0a" />
+          <input type="hidden" name="subject" value="HosH website enquiry" />
+          <input type="hidden" name="from_name" value="HosH Integrity Website" />
           <input
-            type="text"
-            name="_honey"
+            type="checkbox"
+            name="botcheck"
             className="form-honeypot"
             tabIndex={-1}
             autoComplete="off"
@@ -130,10 +168,34 @@ function Contact() {
             <Link to="/terms" className="underline underline-offset-4">
               Website Terms
             </Link>
-            . FormSubmit may ask you to complete a Google reCAPTCHA security check.
+            . Web3Forms processes this enquiry and applies spam checks.
           </p>
-          <Button type="submit" size="lg" className="justify-self-start rounded-full">
-            Submit enquiry <ArrowUpRight />
+          {status === "success" && (
+            <p role="status" className="text-sm leading-6">
+              Your enquiry was accepted for delivery. Please check your email for a reply from HosH.
+            </p>
+          )}
+          {status === "error" && (
+            <p role="alert" className="text-sm leading-6">
+              We could not confirm delivery. Your details are still here. Try again or{" "}
+              <a
+                href={gmailComposeUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                email HosH directly
+              </a>
+              .
+            </p>
+          )}
+          <Button
+            disabled={status === "sending"}
+            type="submit"
+            size="lg"
+            className="justify-self-start rounded-full"
+          >
+            {status === "sending" ? "Sending enquiry..." : "Submit enquiry"} <ArrowUpRight />
           </Button>
         </form>
       </section>
