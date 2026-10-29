@@ -12,6 +12,8 @@ import { ArrowLeft, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Brand } from "@/components/site-shell";
 
+import { site } from "@/lib/site-config";
+
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
@@ -89,13 +91,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "HosH Integrity" },
       { name: "description", content: "Industrial inspection and technical assurance." },
       { name: "author", content: "HosH Integrity" },
+      { name: "robots", content: "noindex,follow" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:image", content: "https://www.hoshint.com/og-image.jpg" },
+      { property: "og:image", content: `${site.url}/og-image.jpg` },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "og:image:alt", content: "HosH Integrity — Preventing Failures" },
-      { name: "twitter:image", content: "https://www.hoshint.com/og-image.jpg" },
+      { property: "og:image:alt", content: "HosH Integrity: Preventing Failures" },
+      { name: "twitter:image", content: `${site.url}/og-image.jpg` },
     ],
     links: [
       {

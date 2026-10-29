@@ -1,3 +1,4 @@
+import { site } from "./site-config";
 import {
   Activity,
   BadgeCheck,
@@ -23,11 +24,11 @@ export const services = [
     title: "Welding Inspection",
     short: "WELD",
     description:
-      "WPS preparation, WPS and WQR qualification inspection, visual inspection, and interpretation of weld-joint radiographic film.",
+      "WPS preparation, WPS and WQR qualification inspection, visual inspection, and interpretation of weld joint radiographic film.",
     icon: ScanLine,
   },
   {
-    title: "Non-Destructive Testing",
+    title: "Nondestructive Testing",
     short: "NDT",
     description:
       "Conventional and advanced testing delivered by competent personnel using modern inspection technology.",
@@ -71,12 +72,12 @@ export const industries = [
   {
     title: "Power",
     description:
-      "Technical inspection and quality supervision for power-sector construction projects.",
+      "Technical inspection and quality supervision for power sector construction projects.",
     icon: Activity,
   },
   {
     title: "Civil Construction",
-    description: "Quality-control supervision and civil-structure integrity inspection.",
+    description: "Quality control supervision and civil structure integrity inspection.",
     icon: Building2,
   },
 ];
@@ -141,7 +142,7 @@ export const serviceDetails = [
     ],
   },
   {
-    title: "Non-destructive testing",
+    title: "Nondestructive testing",
     items: [
       "Magnetic Particle Inspection (MPI)",
       "Fluorescent Magnetic Particle Inspection (FMPI)",
@@ -191,31 +192,31 @@ export const trainingPrograms = [
   {
     title: "Certified lead auditor courses",
     items: [
-      "ISO 9001 — 5 days",
-      "ISO 14001 — 5 days",
-      "OHSAS 18001 — 5 days",
-      "ISO/IEC 27001 — 5 days",
-      "ISO 22000 — 5 days",
+      "ISO 9001: 5 days",
+      "ISO 14001: 5 days",
+      "OHSAS 18001: 5 days",
+      "ISO/IEC 27001: 5 days",
+      "ISO 22000: 5 days",
     ],
   },
   {
     title: "Welding training",
     items: [
-      "Professional Welding Inspector — 5 days",
-      "Welding Inspection & Control — 2 days",
-      "Pipeline Welding & Control — 1 day",
-      "WPS and WQT Qualification — 1 day",
-      "AWS Welding Symbols — 1 day",
-      "Attributes of Welding Inspector — 1 day",
+      "Professional Welding Inspector: 5 days",
+      "Welding Inspection & Control: 2 days",
+      "Pipeline Welding & Control: 1 day",
+      "WPS and WQT Qualification: 1 day",
+      "AWS Welding Symbols: 1 day",
+      "Attributes of Welding Inspector: 1 day",
     ],
   },
   {
     title: "QA/QC training",
     items: [
-      "Project QA/QC Management — 2 days",
-      "Pipeline QC Mapping — 1 day",
-      "Hydrotesting of CC Pipelines — 1 day",
-      "Preparation of Project ITP — 1 day",
+      "Project QA/QC Management: 2 days",
+      "Pipeline QC Mapping: 1 day",
+      "Hydrotesting of CC Pipelines: 1 day",
+      "Preparation of Project ITP: 1 day",
     ],
   },
   {
@@ -240,13 +241,13 @@ export const pages = {
     eyebrow: "Capabilities",
     title: "A complete spectrum of inspection services.",
     intro:
-      "HosH supports the safe operation of industrial assets through quality assurance supervision, expediting, audits, supplier evaluation, conventional and advanced NDT, condition-based monitoring, and training.",
+      "HosH supports the safe operation of industrial assets through quality assurance supervision, expediting, audits, supplier evaluation, conventional and advanced NDT, condition based monitoring, and training.",
   },
   industries: {
     eyebrow: "Industry coverage",
     title: "Built for environments where failure is not an option.",
     intro:
-      "HosH provides inspection and quality-control support for oil and gas, petrochemical, power, and civil construction projects.",
+      "HosH provides inspection and quality control support for oil and gas, petrochemical, power, and civil construction projects.",
   },
   training: {
     eyebrow: "Technical training",
@@ -264,7 +265,7 @@ export const pages = {
     eyebrow: "About HosH",
     title: "A specialist partner for safer, more reliable operations.",
     intro:
-      "HosH is committed to delivering a higher level of reliability through capable, certified, well-trained, and well-equipped personnel supported by experienced leaders.",
+      "HosH is committed to delivering a higher level of reliability through capable, certified, well trained, and well equipped personnel supported by experienced leaders.",
   },
 };
 
@@ -272,7 +273,7 @@ export const principles = [
   {
     number: "01",
     title: "Vision",
-    body: "Our vision is to be the trend-maker company in the capacity of HSE and quality management services.",
+    body: "Our vision is to be the trend maker company in the capacity of HSE and quality management services.",
   },
   {
     number: "02",
@@ -282,8 +283,8 @@ export const principles = [
   {
     number: "03",
     title: "Our formula for success",
-    body: "Be highly capable locally, with certified, well-trained, and well-equipped personnel supported by trained, experienced leaders.",
+    body: "Be highly capable locally, with certified, well trained, and well equipped personnel supported by trained, experienced leaders.",
   },
 ];
 
-export const contactEmail = "info@hoshint.com";
+export const contactEmail = site.email;

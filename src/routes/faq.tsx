@@ -2,22 +2,17 @@ import { createFileRoute } from "@tanstack/react-router";
 import { FAQPreview } from "@/components/site-sections";
 import { SiteShell } from "@/components/site-shell";
 
+import { pageSeo } from "@/lib/seo";
+
 export const Route = createFileRoute("/faq")({
-  head: () => ({
-    links: [{ rel: "canonical", href: "https://www.hoshint.com/faq" }],
-    meta: [
-      { title: "Frequently Asked Questions | HosH Integrity" },
-      {
-        name: "description",
-        content:
-          "Answers about HosH Integrity inspection services, industries, quotations, and technical training.",
-      },
-      { property: "og:title", content: "Frequently Asked Questions | HosH Integrity" },
-      { property: "og:description", content: "Clear answers before inspection work begins." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
+  head: () =>
+    pageSeo({
+      path: "/faq",
+      name: "FAQ",
+      title: "Inspection and Training Questions | HosH Integrity",
+      description:
+        "Answers about HosH inspection services, industries, training and quotation requirements. Learn what to include when discussing your project.",
+    }),
   component: FAQPage,
 });
 function FAQPage() {

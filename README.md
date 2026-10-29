@@ -1,40 +1,56 @@
 # HosH Integrity website
 
-Corporate website for HosH Integrity, built with React, TanStack Start, TypeScript, Tailwind CSS, and Vite. The copy and industrial photographs are drawn from the client-supplied `h2.pptx` and `h3.pptx` company profiles. The spatial illustrations are visual concepts and do not depict a specific client site or measured result.
+The client approved industrial inspection website, built with React, TanStack Start, TypeScript, Tailwind CSS and Vite. Company capabilities and photographs come from the supplied profiles. Preserve the approved design and the entire `.lovable/` folder.
+
+## Current configuration
+
+The intended public origin is `https://hoshintegrity.com`. The enquiry inbox is `hoshintegrityinfo@gmail.com`, and the confirmed location is Karachi, Pakistan. These details are centralised in `src/lib/site-config.ts`.
+
+Work remains in [Raazia-Imran/HosH](https://github.com/Raazia-Imran/HosH). Do not move ownership or change DNS as part of routine content edits. The final client account move is planned after release review. A separate client repository can preserve history while leaving the agreed portfolio copy in place.
+
+## Run and verify
+
+Use the committed Bun lockfile for reproducible installation:
+
+```sh
+bun install --frozen-lockfile
+bun run dev
+bun run lint
+bunx tsc --noEmit
+bun run build
+```
+
+Against an already running development or deployed server:
+
+```sh
+BASE_URL=http://127.0.0.1:4173 npm run check:site
+```
+
+The site check verifies rendered routes, canonical URLs, metadata, structured data, local assets, contact configuration, sitemap, robots and the 404 response. It does not send an enquiry or prove inbox delivery, browser interaction, visual quality or legal compliance.
 
 ## Project structure
 
-- `src/routes/`: website pages and page metadata.
-- `src/components/`: shared layout, approved visuals, and interactive sections.
-- `src/lib/site-content.ts`: reusable company copy and service data.
-- `src/assets/` and `public/`: images used by the site, branding, favicon, sitemap, and robots file.
-- `docs/image-provenance.md`: image sources and colorization details.
+| Location | Purpose |
+| --- | --- |
+| `src/routes/` | Page content and route metadata |
+| `src/components/` | Shared layout and approved interactive visuals |
+| `src/lib/site-config.ts` | Final domain, enquiry email and confirmed location |
+| `src/lib/seo.ts` | Canonical, sharing and structured data helpers |
+| `src/lib/site-content.ts` | Company services, training and profile copy |
+| `src/assets/` and `public/` | Approved images, branding, favicon and discovery files |
+| `scripts/check-site.mjs` | Repeatable route and SEO checks |
+| `docs/launch-checklist.md` | Full content, hosting, handoff, DNS, forms and SEO plan |
+| `docs/content-evidence.md` | Confirmed facts and unresolved release decisions |
+| `docs/image-provenance.md` | Photograph sources and colorization details |
 
-Unused starter components, unreferenced images, and the completed roadmap have been removed. The entire `.lovable/` folder, including its planning files, is preserved. The existing dependency manifest, Bun lockfile, Lovable connection, and build/error-handling configuration are retained to preserve the working setup.
+## Release status
 
-## Run locally
+Home, Services, Industries, Training, Certifications, About, Contact, FAQ, Insights, Privacy, Terms and Cookies are implemented. Insights provides enquiry planning resources based on the supplied capabilities. Privacy, Terms and Cookies remain `noindex` and outside the sitemap until the operator confirms its identity and practices and approves the notices. They do not display public editorial placeholders.
 
-```sh
-npm install
-npm run dev
-npm run lint
-npx tsc --noEmit
-npm run build
-```
+The enquiry endpoint uses FormSubmit and must be activated and tested by the client. The Google Fonts and provider dependencies are disclosed in the notices. No advertising or visitor analytics tags have been added. The website does not process online payments.
 
-The repository retains Lovable's build configuration and `bun.lock`. Avoid rewriting published history on the Lovable-connected branch.
+The current Vercel deployment is a development reference, not confirmation that the final client domain has launched. Vercel Hobby is restricted to personal or noncommercial use. Agree a suitable hosting plan for the business site before the final account move. Do not bypass dependency security blocks. TanStack Start is pinned to the security patched version with a committed lockfile.
 
-## Pages and content
+After pushing, inspect the exact commit’s Vercel status and SonarQube result, and smoke test the deployed pages. A neutral SonarQube result or a quality gate that was not computed is not a passed gate. Never rewrite the published history of the Lovable connected branch.
 
-Home, Services, Industries, Training, Certifications, About, Contact, FAQ, Insights, Privacy, and Terms are implemented. Unknown routes use a custom 404 page. Reusable company data is in `src/lib/site-content.ts`. The Insights and legal pages are drafts, marked for client review and excluded from indexing. Do not publish unverified claims or replace missing information with invented details.
-
-## Launch checklist
-
-1. Confirm that `https://www.hoshint.com` is the deployed canonical site. If the production address differs, update all canonical links, the Open Graph image URL, `public/sitemap.xml`, and `public/robots.txt` together. Configure the alternate host to redirect to the canonical host.
-2. Submit the Contact form once and have the owner of `info@hoshint.com` click FormSubmit's verification link. Confirm that a real enquiry reaches the inbox; until activation, the form is not operational. FormSubmit receives submitted personal information, so approve its use and update the privacy policy accordingly.
-3. Obtain the registered legal entity, jurisdiction, office address, phone number, retention policy, privacy contact, and approval of Privacy and Terms. Remove `noindex` from those pages only after approval.
-4. Confirm that certifications, memberships, training availability, and the online systems in the profile remain current. Supply documentary evidence or revised copy for any changed qualification.
-5. Supply approved technical articles, author names, dates, and original on-site photographs if desired. The existing photos come from the client profiles; confirm their publication rights.
-6. Check the production deployment on physical or emulated mobile, tablet, and desktop browsers; validate navigation, keyboard use, reduced motion, forms, image loading, and Search Console indexing. Build and route smoke checks alone cannot guarantee layout at every screen size.
-
-The sitemap includes approved-content public pages only. Search optimization improves discoverability but cannot guarantee a top ranking. No paid plans or prices are advertised because the supplied profiles do not contain them.
+See [the full launch checklist](docs/launch-checklist.md) for the release sequence, blockers, source references and account handoff procedure. Search optimisation supports discovery but cannot guarantee a first place ranking.

@@ -1,24 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { InnerPage } from "@/components/inner-page";
 
+import { pageSeo } from "@/lib/seo";
+
 export const Route = createFileRoute("/services")({
-  head: () => ({
-    links: [{ rel: "canonical", href: "https://www.hoshint.com/services" }],
-    meta: [
-      { title: "Industrial Inspection Services | HosH Integrity" },
-      {
-        name: "description",
-        content:
-          "NDT, pipeline, lifting equipment, QA/QC, HSE, and technical inspection services from HosH Integrity.",
-      },
-      { property: "og:title", content: "Industrial Inspection Services | HosH Integrity" },
-      {
-        property: "og:description",
-        content: "Independent technical assurance across the complete asset lifecycle.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
+  head: () =>
+    pageSeo({
+      path: "/services",
+      name: "Services",
+      title: "Industrial Inspection and NDT Services | HosH Integrity",
+      description:
+        "Explore HosH industrial inspection, welding inspection, conventional and advanced NDT, asset integrity, QA/QC and HSE services.",
+    }),
   component: () => <InnerPage type="services" />,
 });

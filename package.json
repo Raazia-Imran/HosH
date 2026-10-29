@@ -9,6 +9,7 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
+    "check:site": "node scripts/check-site.mjs",
     "format": "prettier --write ."
   },
   "overrides": {

@@ -1,26 +1,22 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowUpRight, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { site } from "@/lib/site-config";
 import { SiteShell } from "@/components/site-shell";
 
+import { pageSeo } from "@/lib/seo";
+
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    links: [{ rel: "canonical", href: "https://www.hoshint.com/contact" }],
-    meta: [
-      { title: "Contact | HosH Integrity" },
-      {
-        name: "description",
-        content:
-          "Start an inspection, training, QA/QC, or asset integrity enquiry with HosH Integrity.",
-      },
-      { property: "og:title", content: "Contact | HosH Integrity" },
-      { property: "og:description", content: "Bring clarity to your next critical decision." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
+  head: () =>
+    pageSeo({
+      path: "/contact",
+      name: "Contact",
+      title: "Contact HosH Integrity | Karachi, Pakistan",
+      description:
+        "Contact HosH Integrity in Karachi, Pakistan about industrial inspection, NDT, asset integrity, QA/QC, HSE or technical training enquiries.",
+    }),
   component: Contact,
 });
 
@@ -40,27 +36,24 @@ function Contact() {
       <section className="section-shell contact-layout py-16 md:py-24">
         <div className="min-w-0">
           <h2 className="text-2xl font-semibold">Contact HosH</h2>
-          <a href="mailto:info@hoshint.com" className="contact-row">
+          <a href={`mailto:${site.email}`} className="contact-row">
             <Mail className="size-5 text-primary" />
-            <span>info@hoshint.com</span>
+            <span className="break-all">{site.email}</span>
           </a>
           <div className="contact-row">
             <MapPin className="size-5 text-primary" />
-            <span className="missing-info">Missing client information: office address</span>
+            <span>{site.location}</span>
           </div>
-          <div className="contact-row">
-            <Phone className="size-5 text-primary" />
-            <span className="missing-info">Missing client information: phone number</span>
-          </div>
+          <p className="mt-4 leading-7 text-muted-foreground">
+            Email us with your service requirement, project location and preferred schedule. For a
+            visit or a call, please arrange a time by email first.
+          </p>
           <div className="email-notice">
-            This form uses FormSubmit to send your enquiry to HosH.
+            FormSubmit processes this form and delivers your enquiry to the HosH inbox. Please avoid
+            including passwords, identity documents or confidential project files.
           </div>
         </div>
-        <form
-          action="https://formsubmit.co/info@hoshint.com"
-          method="POST"
-          className="contact-form"
-        >
+        <form action={`https://formsubmit.co/${site.email}`} method="POST" className="contact-form">
           <input type="hidden" name="_subject" value="HosH website enquiry" />
           <input type="hidden" name="_template" value="table" />
           <input
@@ -72,10 +65,18 @@ function Contact() {
             aria-hidden="true"
           />
           <div className="grid gap-4 sm:grid-cols-2">
-            <Input required name="name" aria-label="Name" placeholder="Your name" maxLength={100} />
+            <Input
+              required
+              name="name"
+              autoComplete="name"
+              aria-label="Name"
+              placeholder="Your name"
+              maxLength={100}
+            />
             <Input
               required
               name="company"
+              autoComplete="organization"
               aria-label="Company"
               placeholder="Company"
               maxLength={120}
@@ -85,9 +86,10 @@ function Contact() {
             <Input
               required
               name="email"
+              autoComplete="email"
               aria-label="Email"
               type="email"
-              placeholder="Work email"
+              placeholder="Email address"
               maxLength={254}
             />
             <Input
@@ -106,6 +108,17 @@ function Contact() {
             maxLength={4000}
             className="min-h-36"
           />
+          <p className="text-sm leading-6 text-muted-foreground">
+            We use your details to respond to this enquiry. Read our{" "}
+            <Link to="/privacy" className="underline underline-offset-4">
+              Privacy Policy
+            </Link>{" "}
+            and{" "}
+            <Link to="/terms" className="underline underline-offset-4">
+              Website Terms
+            </Link>
+            . FormSubmit may ask you to complete a Google reCAPTCHA security check.
+          </p>
           <Button type="submit" size="lg" className="justify-self-start rounded-full">
             Submit enquiry <ArrowUpRight />
           </Button>

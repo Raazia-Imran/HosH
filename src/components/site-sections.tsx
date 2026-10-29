@@ -31,11 +31,11 @@ export const faqs = [
   ],
   [
     "How is a quotation prepared?",
-    "Every quotation is scope-based. Share the asset, location, required service, and timeline so the technical team can assess the requirement.",
+    "Every quotation is scope based. Share the asset, location, required service, and timeline so the technical team can assess the requirement.",
   ],
   [
     "Can HosH provide technical training?",
-    "Yes. HosH provides industry-focused programs covering inspection, safety, quality, and technical competence.",
+    "Yes. HosH provides industry focused programs covering inspection, safety, quality, and technical competence.",
   ],
 ] as const;
 
@@ -217,7 +217,7 @@ export function QuotePackages() {
             [
               "03",
               "Discuss the approach",
-              "HosH can review your requirement and prepare a scope-based response.",
+              "HosH can review your requirement and prepare a scope based response.",
             ],
           ].map(([n, title, body]) => (
             <div key={n}>

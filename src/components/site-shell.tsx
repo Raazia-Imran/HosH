@@ -1,5 +1,6 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { ChevronDown, Menu, MoveUpRight, X } from "lucide-react";
+import { site } from "@/lib/site-config";
 import { useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 
@@ -16,6 +17,7 @@ const supportNav = [
   ["Insights", "/insights"],
   ["Privacy", "/privacy"],
   ["Terms", "/terms"],
+  ["Cookies", "/cookies"],
 ] as const;
 
 export function Brand() {
@@ -28,7 +30,7 @@ export function Brand() {
     >
       <img
         src="/hosh-logo.png"
-        alt="HosH Integrity — Preventing Failures"
+        alt="HosH Integrity: Preventing Failures"
         width={310}
         height={146}
         className="brand-logo"
@@ -158,15 +160,13 @@ export function SiteShell({ children }: { children: ReactNode }) {
           </div>
           <div>
             <div className="footer-label">Contact</div>
-            <a className="footer-contact" href="mailto:info@hoshint.com">
-              info@hoshint.com
+            <a className="footer-contact" href={`mailto:${site.email}`}>
+              {site.email}
             </a>
-            <a className="footer-contact" href="https://www.hoshint.com">
-              www.hoshint.com
+            <a className="footer-contact" href={site.url}>
+              hoshintegrity.com
             </a>
-            <p className="missing-info mt-4">
-              Missing client information: phone and office address
-            </p>
+            <p className="mt-4 text-sm text-ink-muted">{site.location}</p>
           </div>
         </div>
         <div className="border-t border-ink-border px-6 py-5 text-center text-xs text-ink-muted">

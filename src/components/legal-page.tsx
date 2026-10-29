@@ -1,4 +1,7 @@
 import { SiteShell } from "@/components/site-shell";
+import { Link } from "@tanstack/react-router";
+import { site } from "@/lib/site-config";
+import type { ReactNode } from "react";
 
 export function LegalPage({
   title,
@@ -7,7 +10,7 @@ export function LegalPage({
 }: {
   title: string;
   intro: string;
-  sections: Array<{ title: string; body: string }>;
+  sections: Array<{ title: string; body: ReactNode }>;
 }) {
   return (
     <SiteShell>
@@ -21,11 +24,17 @@ export function LegalPage({
       </section>
       <section className="section-shell grid gap-10 py-16 md:grid-cols-[.35fr_1fr] md:py-24">
         <aside className="legal-note">
-          <strong>Details pending confirmation</strong>
-          <span>
-            Legal entity name, registered jurisdiction, address, retention periods, and legal review
-            are still needed.
-          </span>
+          <strong>Last updated {site.updated}</strong>
+          <span>{site.name}</span>
+          <span>{site.location}</span>
+          <a href={`mailto:${site.email}`} className="break-all underline underline-offset-4">
+            {site.email}
+          </a>
+          <nav className="grid gap-2" aria-label="Website policies">
+            <Link to="/privacy">Privacy Policy</Link>
+            <Link to="/terms">Website Terms</Link>
+            <Link to="/cookies">Cookies and Browser Storage</Link>
+          </nav>
         </aside>
         <div className="legal-copy">
           {sections.map((section) => (

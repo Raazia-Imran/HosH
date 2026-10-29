@@ -12,25 +12,17 @@ import {
   QuotePackages,
 } from "@/components/site-sections";
 
+import { pageSeo } from "@/lib/seo";
+
 export const Route = createFileRoute("/")({
-  head: () => ({
-    links: [{ rel: "canonical", href: "https://www.hoshint.com/" }],
-    meta: [
-      { title: "HosH Integrity | We Prevent Failure" },
-      {
-        name: "description",
-        content:
-          "Independent industrial inspection, asset integrity, QA/QC, NDT, HSE, certification, and technical training services.",
-      },
-      { property: "og:title", content: "HosH Integrity | We Prevent Failure" },
-      {
-        property: "og:description",
-        content: "Inspection intelligence for safer, more reliable industrial assets.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
+  head: () =>
+    pageSeo({
+      path: "/",
+      name: "Home",
+      title: "HosH Integrity | Industrial Inspection and NDT in Karachi",
+      description:
+        "HosH Integrity in Karachi, Pakistan provides industrial inspection, NDT, asset integrity, QA/QC, HSE and technical training. Discuss your project.",
+    }),
   component: Index,
 });
 
@@ -49,7 +41,7 @@ function Index() {
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg">
               Protecting critical assets through independent inspection, engineering expertise, and
-              field-proven assurance.
+              field proven assurance.
             </p>
             <div className="mt-7 flex flex-wrap justify-center gap-3">
               <Button asChild size="lg" className="rounded-full">
