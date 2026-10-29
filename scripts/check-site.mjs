@@ -18,7 +18,12 @@ const routes = [
   "/cookies",
 ];
 const legal = new Set(["/privacy", "/terms", "/cookies"]);
-const assets = new Set();
+const assets = new Set([
+  "/og-image-v2.jpg",
+  "/fonts/manrope-latin-5.3.0.woff2",
+  "/fonts/sora-latin-5.3.0.woff2",
+]);
+const nonces = new Set();
 const titles = new Set();
 const get = (path) => fetch(new URL(path, base), { signal: AbortSignal.timeout(20000) });
 const scriptsRemoved = (html) => html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, "");
@@ -31,6 +36,24 @@ for (const path of routes) {
   const response = await get(path);
   assert.equal(response.status, 200, path);
   const html = await response.text();
+  assert.ok(html.includes("https://hoshintegrity.com/og-image-v2.jpg"), `${path}: social image`);
+  assert.ok(
+    !html.includes("fonts.googleapis.com") && !html.includes("fonts.gstatic.com"),
+    `${path}: local fonts`,
+  );
+  if (process.env["CHECK_SECURITY"] === "1") {
+    const csp = response.headers.get("content-security-policy") || "";
+    const nonce = csp.match(/'nonce-([^']+)'/)?.[1];
+    assert.ok(nonce && !nonces.has(nonce), `${path}: unique CSP nonce`);
+    nonces.add(nonce);
+    assert.ok(csp.includes("'strict-dynamic'") && csp.includes("frame-ancestors 'none'"));
+    assert.ok(response.headers.get("cache-control")?.includes("no-store"));
+    for (const tag of html.matchAll(/<script\b[^>]*>/g))
+      assert.ok(tag[0].includes(`nonce="${nonce}"`), `${path}: script nonce`);
+    assert.equal(response.headers.get("x-content-type-options"), "nosniff");
+    assert.equal(response.headers.get("x-frame-options"), "DENY");
+    assert.equal(response.headers.get("referrer-policy"), "strict-origin-when-cross-origin");
+  }
   const title = html.match(/<title>(.*?)<\/title>/)?.[1];
   assert.ok(title && !titles.has(title), `${path}: unique title`);
   titles.add(title);
@@ -87,6 +110,9 @@ for (const path of assets) {
   assert.equal(response.status, 200, `Asset: ${path}`);
   assert.ok((await response.arrayBuffer()).byteLength, `Empty asset: ${path}`);
 }
+const securityContact = await get("/.well-known/security.txt");
+assert.equal(securityContact.status, 200);
+assert.ok((await securityContact.text()).includes(`Contact: mailto:${email}`));
 const sitemap = await (await get("/sitemap.xml")).text();
 for (const path of routes.filter((path) => !legal.has(path)))
   assert.ok(sitemap.includes(`<loc>${new URL(path, origin).href}</loc>`));

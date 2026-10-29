@@ -2,6 +2,9 @@
 @source "../src";
 @import "tw-animate-css";
 
+@font-face { font-family:"Manrope";font-style:normal;font-weight:200 800;font-display:swap;src:url("/fonts/manrope-latin-5.3.0.woff2") format("woff2"); }
+@font-face { font-family:"Sora";font-style:normal;font-weight:100 800;font-display:swap;src:url("/fonts/sora-latin-5.3.0.woff2") format("woff2"); }
+
 @custom-variant dark (&:is(.dark *));
 
 /*
@@ -742,3 +745,10 @@ main { animation:page-enter .5s cubic-bezier(.22,1,.36,1) both; }
 
 /* Long enquiry addresses must wrap on small screens. */
 .footer-contact { overflow-wrap:anywhere; }
+
+.privacy-banner { position:fixed;z-index:80;bottom:1rem;left:1rem;right:1rem;max-width:1020px;margin:auto;border:1px solid var(--border);border-radius:12px;background:var(--card);color:var(--foreground);padding:1.25rem;box-shadow:0 12px 50px rgb(0 0 0 / .35);display:grid;gap:1rem; }
+.privacy-banner h2 { font-size:1.1rem;font-weight:700; }.privacy-banner p,.privacy-dialog p { font-size:.88rem;line-height:1.7;color:var(--muted-foreground); }.privacy-banner a,.privacy-policy-link { text-decoration:underline;font-size:.85rem;text-underline-offset:3px; }
+.privacy-actions { display:flex;flex-wrap:wrap;gap:.6rem; }.privacy-actions button { min-height:44px;white-space:normal; }
+.privacy-dialog { width:min(700px,calc(100vw - 2rem));max-height:calc(100dvh - 2rem);overflow:auto;margin:auto;padding:clamp(1rem,4vw,2rem);border:1px solid var(--border);border-radius:14px;background:var(--card);color:var(--foreground);box-shadow:0 20px 80px rgb(0 0 0 / .4); }.privacy-dialog::backdrop { background:rgb(0 7 14 / .75); }.privacy-dialog-heading { display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.8rem; }.privacy-dialog h2 { font-size:1.35rem;font-weight:700; }.privacy-option { display:flex;align-items:center;justify-content:space-between;gap:1.2rem;padding:1.1rem 0;border-bottom:1px solid var(--border); }.privacy-option h3 { font-size:1rem;font-weight:600; }.privacy-option span { flex:none;font-size:.75rem;color:var(--primary); }.privacy-option input { flex:none;width:22px;height:22px;accent-color:var(--primary); }.privacy-dialog .privacy-actions { margin-block:1.3rem; }.privacy-dialog [role=alert],.privacy-banner [role=alert] { color:var(--destructive); }
+.cookie-settings-link { cursor:pointer;text-align:left;font:inherit;color:inherit; }.cookie-settings-link:hover { text-decoration:underline; }
+@media(max-width:520px) { .privacy-banner { padding:1rem;bottom:.5rem;left:.5rem;right:.5rem; }.privacy-actions button { flex:1 1 130px; }.privacy-option { align-items:start;gap:.7rem; }.privacy-option span { max-width:80px; }.privacy-dialog-heading h2 { font-size:1.15rem; } }

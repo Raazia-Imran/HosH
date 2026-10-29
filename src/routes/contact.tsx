@@ -3,7 +3,7 @@ import { ArrowUpRight, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { site } from "@/lib/site-config";
+import { site, gmailComposeUrl } from "@/lib/site-config";
 import { SiteShell } from "@/components/site-shell";
 
 import { pageSeo } from "@/lib/seo";
@@ -36,10 +36,23 @@ function Contact() {
       <section className="section-shell contact-layout py-16 md:py-24">
         <div className="min-w-0">
           <h2 className="text-2xl font-semibold">Contact HosH</h2>
-          <a href={`mailto:${site.email}`} className="contact-row">
+          <a
+            href={gmailComposeUrl()}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Compose an email to HosH in Gmail"
+            className="contact-row"
+          >
             <Mail className="size-5 text-primary" />
             <span className="break-all">{site.email}</span>
           </a>
+          <p className="text-sm text-muted-foreground">
+            Opens Gmail in a new tab. Prefer another email app?{" "}
+            <a href={`mailto:${site.email}`} className="underline underline-offset-4">
+              Use your default email app
+            </a>
+            .
+          </p>
           <div className="contact-row">
             <MapPin className="size-5 text-primary" />
             <span>{site.location}</span>

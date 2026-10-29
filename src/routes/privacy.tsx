@@ -42,7 +42,7 @@ function Privacy() {
         },
         {
           title: "Fonts and browser storage",
-          body: "The website requests its fonts from Google Fonts, so your browser connects to Google to download the typefaces. The site also uses session storage to remember scroll positions during navigation. See our Cookies and Browser Storage page for more detail. Services visited outside this website may use their own cookies.",
+          body: "The Manrope and Sora font files are served by this website, without a Google Fonts request from your browser. Your privacy choice is stored locally for up to 180 days. Optional session storage for navigation positions starts only if you enable it in Cookie settings. You can withdraw that choice from the footer. Services you choose to visit outside this website may use their own cookies.",
         },
         {
           title: "Access and service providers",
@@ -58,7 +58,7 @@ function Privacy() {
         },
         {
           title: "Protecting information",
-          body: "Please use the HTTPS version of the site and share sensitive project documents only through a channel agreed with HosH. Internet transmission and email are not risk free. No website or email service can guarantee absolute security.",
+          body: "Please use the HTTPS version of the site and share sensitive project documents only through a channel agreed with HosH. Internet transmission and email are not risk free. The website uses HTTPS hosting, security response headers and a Content Security Policy as protective measures. No website or email service can guarantee absolute security.",
         },
         {
           title: "Updates and contact",

@@ -23,7 +23,11 @@ function Cookies() {
       sections={[
         {
           title: "Website storage",
-          body: "The site uses a session storage entry named tsr-scroll-restoration-v1_3 to remember scroll positions as you move between pages. It contains navigation and scroll information and is separate from the details entered in the enquiry form. Session storage normally ends when the browser tab or session is closed, although browser restore settings may preserve a session.",
+          body: "The site stores your chosen privacy setting in local storage under hosh-privacy-v1 for up to 180 days. It records the version, the time of your choice and whether optional navigation storage is enabled. It does not contain your enquiry details. You can reopen Cookie settings from the footer at any time.",
+        },
+        {
+          title: "Optional navigation storage",
+          body: "Navigation storage is off by default. If you enable Remember navigation positions, the site may use the session storage entry tsr-scroll-restoration-v1_3 to remember positions as you move between pages. Rejecting optional storage turns this feature off and removes its saved session entry. Changing the feature reloads the page so the new choice takes effect. Session storage normally ends with the browser session, subject to browser restore behaviour.",
         },
         {
           title: "Advertising and analytics",
@@ -31,7 +35,7 @@ function Cookies() {
         },
         {
           title: "Hosting and fonts",
-          body: "Vercel provides the current hosting. Depending on deployment access settings, its security or authentication features may use cookies. Google Fonts supplies the Manrope and Sora typefaces through requests from your browser. These requests can include your IP address and browser information. Provider policies apply to these services.",
+          body: "Vercel provides the current hosting. Depending on deployment access settings, its security or authentication features may use cookies. The website now serves its Manrope and Sora font files itself, so these fonts do not require a request from your browser to Google Fonts. Settings on this website do not change a hosting provider’s authentication or security features.",
         },
         {
           title: "Enquiry form security",
@@ -39,7 +43,7 @@ function Cookies() {
         },
         {
           title: "Your browser controls",
-          body: "Your browser can clear cookies and site storage or restrict connections to external services. Restricting storage can affect navigation convenience. Blocking fonts may change their appearance, and blocking form security features may prevent a form submission. These controls do not delete information already sent by email.",
+          body: "Use Essential only to leave optional navigation storage off, or enable it in Cookie settings. You can change your choice later using the footer button. Both enabling and rejecting optional storage are available without affecting access to the website or enquiry form. Your browser can also clear site storage. Blocking external form security features may prevent a submission. Changing these choices does not delete information already sent by email.",
         },
         {
           title: "Provider information",

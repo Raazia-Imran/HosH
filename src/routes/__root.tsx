@@ -12,6 +12,7 @@ import { ArrowLeft, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Brand } from "@/components/site-shell";
 
+import { PrivacyControls } from "@/components/privacy-controls";
 import { site } from "@/lib/site-config";
 
 import appCss from "../styles.css?url";
@@ -94,22 +95,30 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "robots", content: "noindex,follow" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:image", content: `${site.url}/og-image.jpg` },
+      { property: "og:image", content: `${site.url}${site.shareImage}` },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { property: "og:image:alt", content: "HosH Integrity: Preventing Failures" },
-      { name: "twitter:image", content: `${site.url}/og-image.jpg` },
+      { name: "twitter:image", content: `${site.url}${site.shareImage}` },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap",
+        rel: "preload",
+        href: "/fonts/manrope-latin-5.3.0.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous",
+      },
+      {
+        rel: "preload",
+        href: "/fonts/sora-latin-5.3.0.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous",
       },
       { rel: "icon", href: "/favicon.ico", sizes: "any" },
     ],
@@ -139,8 +148,9 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+      {/* Nested route content and the shared privacy controls. */}
       <Outlet />
+      <PrivacyControls />
     </QueryClientProvider>
   );
 }

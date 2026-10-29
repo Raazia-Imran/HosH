@@ -1,6 +1,7 @@
 export const site = {
   name: "HosH Integrity",
   url: "https://hoshintegrity.com",
+  shareImage: "/og-image-v2.jpg",
   email: "hoshintegrityinfo@gmail.com",
   location: "Karachi, Pakistan",
   updated: "29 October 2026",
@@ -17,3 +18,7 @@ export const publicPages = [
   { path: "/faq", name: "FAQ" },
   { path: "/insights", name: "Insights" },
 ] as const;
+
+export function gmailComposeUrl() {
+  return `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(site.email)}`;
+}

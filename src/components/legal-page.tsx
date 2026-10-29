@@ -1,6 +1,6 @@
 import { SiteShell } from "@/components/site-shell";
 import { Link } from "@tanstack/react-router";
-import { site } from "@/lib/site-config";
+import { site, gmailComposeUrl } from "@/lib/site-config";
 import type { ReactNode } from "react";
 
 export function LegalPage({
@@ -27,7 +27,13 @@ export function LegalPage({
           <strong>Last updated {site.updated}</strong>
           <span>{site.name}</span>
           <span>{site.location}</span>
-          <a href={`mailto:${site.email}`} className="break-all underline underline-offset-4">
+          <a
+            href={gmailComposeUrl()}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Compose an email to HosH in Gmail"
+            className="break-all underline underline-offset-4"
+          >
             {site.email}
           </a>
           <nav className="grid gap-2" aria-label="Website policies">

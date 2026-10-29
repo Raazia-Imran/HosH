@@ -1,6 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { ChevronDown, Menu, MoveUpRight, X } from "lucide-react";
-import { site } from "@/lib/site-config";
+import { openPrivacySettings } from "@/lib/privacy-preferences";
+import { site, gmailComposeUrl } from "@/lib/site-config";
 import { useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 
@@ -156,11 +157,20 @@ export function SiteShell({ children }: { children: ReactNode }) {
                   {l}
                 </Link>
               ))}
+              <button type="button" className="cookie-settings-link" onClick={openPrivacySettings}>
+                Cookie settings
+              </button>
             </div>
           </div>
           <div>
             <div className="footer-label">Contact</div>
-            <a className="footer-contact" href={`mailto:${site.email}`}>
+            <a
+              className="footer-contact"
+              href={gmailComposeUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Compose an email to HosH in Gmail"
+            >
               {site.email}
             </a>
             <a className="footer-contact" href={site.url}>

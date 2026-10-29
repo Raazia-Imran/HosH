@@ -29,7 +29,7 @@ For each task, record the owner, date, exact account or environment, release com
 | 15 | 🔴 To do | Complete launch monitoring and the six month maintenance period | Tracked updates, search performance and delivery checks throughout the agreed term |
 | 16 | 🔴 To do | Handover to the client’s son at the end of maintenance | Independent access, documentation and a supervised change and rollback completed |
 
-The next decision is Step 01 and Step 02. The current review deployment is not the client account deployment. Source work stays in Raazia-Imran/HosH until the agreed final handoff stage.
+The user selected an independent client repository with full copied Git history, to be created at the final handoff. Development review of legal text is authorised. Missing factual details and suitable hosting still need resolution in Steps 01 and 02. The current review deployment is not the client account deployment. Source work stays in Raazia-Imran/HosH until the agreed final handoff stage.
 
 ## Account ownership map
 
@@ -91,7 +91,7 @@ Current credentials means current professional certificates and memberships, wit
 
 ### What the Cookies page currently does
 
-It is an information page. It describes scroll restoration session storage, the absence of advertising and analytics tags in the current source, Vercel hosting features, Google Fonts requests and the FormSubmit/reCAPTCHA flow. It links to provider privacy information. It does not install a consent banner, collect consent or block optional technologies until a visitor accepts them.
+The information page now accompanies a first visit banner and a footer Cookie settings dialog. Optional navigation session storage is off by default. Essential only, Allow navigation storage, Reject optional storage and Save choices work without restricting access to the website. Preferences expire after 180 days. Withdrawal removes the optional router session entry and reloads the page. Fonts are served locally. No advertising or analytics tags are installed. The notices also explain Vercel and the external FormSubmit flow. These settings do not control an external provider’s cookies.
 
 The client should review it, together with Privacy and Terms, to confirm the actual business practices, audience and providers. A final browser storage and network audit should check the deployed domain. Whether particular storage or provider features need consent depends on the applicable rules and purpose, not simply on whether the page calls something a cookie. Do not assume a scroll convenience feature is legally essential. A suitable adviser can assess the relevant jurisdictions. If consent controls are needed, implement and test them before enabling the affected technologies. Do not add Google Analytics or an advertising pixel without revisiting this decision.
 
@@ -129,7 +129,7 @@ Vercel’s current terms limit Hobby to personal or noncommercial use. HosH is a
 | Option | Your portfolio repository | Client ownership and future work | Fit for this project |
 | --- | --- | --- | --- |
 | Client forks your repository | Original remains in your account | Client can commit and deploy its fork, but it remains in the upstream fork network; a public upstream has public forks | Possible if both parties accept the public fork relationship |
-| Separate client repository with copied Git history | Original remains in your account | Client owns a standalone repository and chooses its own access and visibility | Recommended for an independent handoff |
+| Separate client repository with copied Git history | Original remains in your account | Client owns a standalone repository and chooses its own access and visibility | Selected by the user for an independent handoff |
 | Transfer ownership of the current repository | The repository moves out of your account | Client receives the repository and its associated GitHub project history | Valid, but does not match the stated preference to keep this repository in your account |
 
 Transferring does not erase commit history or authorship. Copying Git history also preserves the copied commit objects and author information. Profile contribution display has its own GitHub rules, including author email attribution and the repository context; a portfolio link is separate from the contribution calendar. A copy of Git history does not copy stars, issues, pull requests, repository secrets or app settings. A transfer preserves more repository metadata than a code/history copy.
@@ -219,7 +219,7 @@ If the target contains unrelated commits, stop and reconcile them. Do not force 
 | --- | --- | --- |
 | robots.txt | 🟢 Prepared in code; final host check remains | https://hoshintegrity.com/robots.txt |
 | XML sitemap | 🟢 Prepared in code; final host check remains | https://hoshintegrity.com/sitemap.xml |
-| Social preview image | 🟢 Prepared in code; final host check remains | https://hoshintegrity.com/og-image.jpg |
+| Social preview image | 🟢 Prepared in code; final host check remains | https://hoshintegrity.com/og-image-v2.jpg |
 | Canonical links and sharing metadata | 🟢 Prepared in code | Final origin hoshintegrity.com throughout |
 | Public indexability and headers | 🔴 To do on final client domain | Check page robots tags, HTTP headers, login access and host redirects |
 
@@ -295,8 +295,8 @@ Available reports and settings vary with property type, role, features and colle
 
 🟡 In progress: Open Graph and social card metadata, titles/descriptions and a 1200 × 630 JPEG are already in the source. The image contains the approved HosH logo. The final domain has not been validated for preview fetching yet.
 
-1. Confirm the client approves the existing image at `/og-image.jpg`.
-2. Once DNS and HTTPS are working, fetch `https://hoshintegrity.com/og-image.jpg` without a login. Check an HTTP 200 response and an image content type.
+1. Review the new logo and tagline card at `/og-image-v2.jpg`.
+2. Once DNS and HTTPS are working, fetch `https://hoshintegrity.com/og-image-v2.jpg` without a login. Check an HTTP 200 response and an image content type.
 3. Inspect the server rendered source of Home and key pages for `og:title`, `og:description`, `og:type`, `og:url`, `og:image`, image dimensions and image alt text, plus the Twitter card tags.
 4. Confirm image URLs use the final public domain. An image file existing in GitHub is not enough if its public URL is unreachable.
 5. Check redirects, authentication, firewall challenges and crawler blocking for both the page and image.
@@ -394,7 +394,7 @@ No SEO implementation can guarantee that a website stays first on Google. Search
 
 The most recent verified website release is f939e4add31e5eb3daa3559ba4cc7bc660da7041. Its developer Vercel deployment was READY, relevant deployed pages returned 200, local route checks passed and no error/fatal runtime logs were returned in the checked window. SonarQube completed with a neutral result titled “Quality Gate not computed”. This is an open quality gate issue, not a green pass.
 
-The next work session should confirm the operator details and review the three notice pages with the client, then settle suitable hosting and the standalone repository handoff decision. It should not start with blind DNS edits or a repository ownership transfer. Final DNS, client account setup, consent requirements, live inbox delivery, social preview fetching, Search Console ownership, public indexing and final domain audit scores remain unverified.
+The user authorised practical legal notice drafting and selected a standalone history copy. Finish development verification, confirm missing operator and provider facts, and settle suitable hosting before handoff. It should not start with blind DNS edits or a repository ownership transfer. Final DNS, client account setup, consent requirements, live inbox delivery, social preview fetching, Search Console ownership, public indexing and final domain audit scores remain unverified.
 
 ## Official references
 
@@ -422,3 +422,19 @@ The next work session should confirm the operator details and review the three n
 - [Storage and access technologies guidance, with applicability to be assessed](https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guidance-on-the-use-of-storage-and-access-technologies/what-are-storage-and-access-technologies/)
 
 - [Search generative AI control](https://support.google.com/webmasters/answer/16908024)
+
+## Current development release additions
+
+- 🟢 Implemented: Gmail compose links with a default email app alternative on Contact.
+- 🟢 Implemented: Local font delivery with licences, preserving the approved font families.
+- 🟢 Implemented: First visit privacy choices and footer settings, optional navigation storage off by default, preference expiry and withdrawal.
+- 🟢 Implemented: New social image with original logo, tagline and final domain. Metadata uses the new versioned image path.
+- 🟢 Implemented: Per request document CSP nonce, security response headers and a published security contact. Dependency patches, a regenerated lockfile, weekly Dependabot proposals and CI verification are prepared. Local build and TypeScript pass; lint has zero errors and three existing warnings; the audit reports no known vulnerabilities. Production checks cover 12 pages and 36 assets, and browser checks cover 36 page and viewport combinations.
+- 🟡 Verification: Inspect the exact pushed commit’s CI, Vercel and SonarQube results. A neutral Sonar result is not a passed gate.
+- 🔴 Account settings: Verify MFA, recovery details, named collaborators, least privilege, branch protection or rulesets where the account plan permits, dependency alerts, secret scanning availability, Vercel deployment access, billing alerts and domain renewal. These require checking each actual client account and are not completed by changing code.
+- 🔴 Enquiries: Activate FormSubmit and confirm a real test arrives in the client inbox. No test message has been sent by the development checks.
+- 🔴 Launch: Client repository copy, client hosting, DNS, HTTPS, public social fetching and Search Console remain for the final release stage.
+
+The existing hos-h.vercel.app address is a review project alias. It does not change ownership of hoshintegrity.com. The final domain will point to the selected client hosting project after DNS is configured. Namecheap domain privacy protects public registration details and is separate from hosting, DNS, website privacy controls and HTTPS.
+
+The developer cannot certify universal legal suitability or all provider account security. The notices accurately describe the known website and give the confirmed contact email, without inventing a registered legal entity, street address or business identifiers. Keep unknown facts recorded internally. No paid hosting subscription, DNS change, account transfer or client repository creation is authorised as part of this development release.

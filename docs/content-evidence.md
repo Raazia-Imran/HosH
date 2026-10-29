@@ -8,7 +8,7 @@ The existing approved website and supplied h2.pptx, h3.pptx and company profile 
 
 The user supplied hoshintegrityinfo@gmail.com as the current contact email and confirmed hoshintegrity.com as the Namecheap domain. The user also confirmed Karachi, Pakistan. The code therefore uses those details throughout. The user did not supply a street address, telephone number, registration number, registered legal name, current certificate validity dates or a full service area.
 
-The Privacy, Terms and Cookies pages describe the implemented enquiry website. Their text is prepared for the operator’s review. It is not a claim that every law in every market has been assessed. Keep them out of search until operator identity, information handling and legal suitability have been reviewed. The internal launch checklist holds these open items, rather than exposing editorial notes to visitors.
+The Privacy, Terms and Cookies pages describe the implemented enquiry website. The user authorised drafting and development review using established website practices because the client is nontechnical. It is not a claim that every law in every market has been assessed. They remain public but excluded from search while missing operator and information handling facts are confirmed. Search exclusion is not a legal compliance requirement. The internal launch checklist holds these open items, rather than exposing editorial notes to visitors.
 
 ## Claims deliberately excluded
 
@@ -18,7 +18,7 @@ The Insights resources discuss how to prepare an enquiry using the company profi
 
 ## Current implementation facts
 
-The form submits to FormSubmit for delivery to the supplied Gmail inbox. The website does not itself store form submissions in a database. No live email delivery test or inbox activation has been claimed. Google reCAPTCHA may appear on the provider’s submission flow. Google Fonts is still used. Scroll restoration uses browser session storage. The current source does not include a Google Analytics or advertising tag. Existing Lovable error handling remains in place for the connected editor. Reassess these descriptions if tracking, hosting, email or form providers change.
+The form submits to FormSubmit for delivery to the supplied Gmail inbox. The website does not itself store form submissions in a database. No live email delivery test or inbox activation has been claimed. Google reCAPTCHA may appear on the provider’s submission flow. Manrope and Sora are now served locally with their font licences, so these fonts make no Google Fonts request. The banner and footer dialog keep optional navigation session storage off until explicitly enabled. A local preference records the version, choice and timestamp for up to 180 days. Withdrawal clears the router session entry and reloads the page. Cross tab changes reload the receiving tab. The current source does not include a Google Analytics or advertising tag. Existing Lovable error handling remains in place for the connected editor. Reassess these descriptions if tracking, hosting, email or form providers change.
 
 ## Changes intentionally deferred
 
@@ -26,8 +26,10 @@ DNS changes, final domain attachment, Search Console ownership verification, a c
 
 ## Development verification
 
-On 29 October 2026, the local production build and TypeScript checks passed. Lint reported no errors and three existing React refresh warnings. The route checker passed all 12 content pages, their metadata and structured data, the contact configuration, 14 local assets, sitemap, robots and a real 404 response.
+On 29 October 2026, the production build, TypeScript and lint checks were run for this release. The checker covers 12 content pages, metadata, structured data, local assets, sitemap, robots, security contact and a real 404. With CHECK_SECURITY=1 it also checks response headers, document script nonces and unique nonces across routes. Build and TypeScript passed; lint reported zero errors and three existing React refresh warnings. The route checker passed 12 pages and 36 local assets, including fonts and the social image. The dependency audit reported no known vulnerabilities at the time of testing.
 
-Browser layout checks covered all 12 pages at widths of 1440, 768 and 390 pixels without horizontal overflow, broken images or public red editorial notes. Desktop and mobile screenshots of the updated Contact and legal pages were inspected. Interaction checks covered the mobile menu, service and industry selectors, a training category, an FAQ item and contact form validation. The test intercepted form submission, so no email was sent and inbox delivery remains unverified. Google Fonts requests were blocked by the test environment, so layout verification used the declared fallback fonts. Check final font delivery and visual appearance on the client domain before launch.
+Production browser checks cover all 12 pages at widths of 1440, 768 and 390 pixels, local font delivery, mobile navigation, the service selector, Gmail compose links, cookie choices, storage opt in and withdrawal, preference expiry and dialog keyboard dismissal. A parser inserted script without a nonce is used to test CSP enforcement. A trusted script creating another script is deliberately not used for that test because strict dynamic permits trusted script descendants. No enquiry is sent by these checks.
+
+The dependency lockfile was regenerated by Bun from registry metadata after patching reported advisories. No vulnerability bypass or ignored advisory was added. An audit only reports findings known to its advisory database at the time of the check. Repository and provider account settings need separate verification.
 
 These development checks do not complete the client account move, DNS changes, inbox activation, final legal approval, Search Console verification, field performance measurements or public launch. The exact pushed commit’s connected deployment and SonarQube results must also be inspected.

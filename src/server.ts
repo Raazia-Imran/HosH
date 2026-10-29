@@ -4,14 +4,14 @@ import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
 
 type ServerEntry = {
-  fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
+  fetch: (request: Request) => Promise<Response> | Response;
 };
 
 let serverEntryPromise: Promise<ServerEntry> | undefined;
 
 async function getServerEntry(): Promise<ServerEntry> {
   if (!serverEntryPromise) {
-    serverEntryPromise = import("@tanstack/react-start/server-entry").then(
+    serverEntryPromise = import("./lib/secure-entry.server").then(
       (m) => (m.default ?? m) as ServerEntry,
     );
   }
@@ -50,6 +50,14 @@ function withSecurityHeaders(response: Response): Response {
   headers.set("X-Frame-Options", "DENY");
   headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
   headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
+  headers.set("Cross-Origin-Opener-Policy", "same-origin");
+  headers.set("X-Permitted-Cross-Domain-Policies", "none");
+  if (!import.meta.env.DEV && !headers.has("Content-Security-Policy")) {
+    headers.set(
+      "Content-Security-Policy",
+      "default-src 'none'; style-src 'unsafe-inline'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'",
+    );
+  }
   return new Response(response.body, {
     status: response.status,
     statusText: response.statusText,
@@ -58,10 +66,10 @@ function withSecurityHeaders(response: Response): Response {
 }
 
 export default {
-  async fetch(request: Request, env: unknown, ctx: unknown) {
+  async fetch(request: Request) {
     try {
       const handler = await getServerEntry();
-      const response = await handler.fetch(request, env, ctx);
+      const response = await handler.fetch(request);
       return withSecurityHeaders(await normalizeCatastrophicSsrResponse(response));
     } catch (error) {
       console.error(error);
