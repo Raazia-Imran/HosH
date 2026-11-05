@@ -1,16 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { InnerPage } from "@/components/inner-page";
 
-import { pageSeo } from "@/lib/seo";
-
 export const Route = createFileRoute("/about")({
-  head: () =>
-    pageSeo({
-      path: "/about",
-      name: "About",
-      title: "About HosH Integrity | Inspection and Technical Assurance",
-      description:
-        "Learn about HosH Integrity, an industrial inspection and technical assurance business based in Karachi, Pakistan, and its approach to quality and safety.",
-    }),
+  head: () => ({ meta: [{ title: "About HosH Integrity" }, { name: "description", content: "Meet the specialist inspection and technical assurance company focused on preventing industrial failure." }, { property: "og:title", content: "About HosH Integrity" }, { property: "og:description", content: "A specialist partner for safer, more reliable operations." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
   component: () => <InnerPage type="about" />,
 });

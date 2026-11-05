@@ -1,4 +1,0 @@
-Contact: mailto:hoshintegrityinfo@gmail.com
-Expires: 2027-04-29T00:00:00.000Z
-Preferred-Languages: en
-Canonical: https://hoshintegrity.com/.well-known/security.txt

@@ -4,14 +4,14 @@ import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
 
 type ServerEntry = {
-  fetch: (request: Request) => Promise<Response> | Response;
+  fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
 };
 
 let serverEntryPromise: Promise<ServerEntry> | undefined;
 
 async function getServerEntry(): Promise<ServerEntry> {
   if (!serverEntryPromise) {
-    serverEntryPromise = import("./lib/secure-entry.server").then(
+    serverEntryPromise = import("@tanstack/react-start/server-entry").then(
       (m) => (m.default ?? m) as ServerEntry,
     );
   }
@@ -44,41 +44,18 @@ function isH3SwallowedErrorBody(body: string): boolean {
   }
 }
 
-function withSecurityHeaders(response: Response): Response {
-  const headers = new Headers(response.headers);
-  headers.set("X-Content-Type-Options", "nosniff");
-  headers.set("X-Frame-Options", "DENY");
-  headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
-  headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
-  headers.set("Cross-Origin-Opener-Policy", "same-origin");
-  headers.set("X-Permitted-Cross-Domain-Policies", "none");
-  if (!import.meta.env.DEV && !headers.has("Content-Security-Policy")) {
-    headers.set(
-      "Content-Security-Policy",
-      "default-src 'none'; style-src 'unsafe-inline'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'",
-    );
-  }
-  return new Response(response.body, {
-    status: response.status,
-    statusText: response.statusText,
-    headers,
-  });
-}
-
 export default {
-  async fetch(request: Request) {
+  async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
       const handler = await getServerEntry();
-      const response = await handler.fetch(request);
-      return withSecurityHeaders(await normalizeCatastrophicSsrResponse(response));
+      const response = await handler.fetch(request, env, ctx);
+      return await normalizeCatastrophicSsrResponse(response);
     } catch (error) {
       console.error(error);
-      return withSecurityHeaders(
-        new Response(renderErrorPage(), {
-          status: 500,
-          headers: { "content-type": "text/html; charset=utf-8" },
-        }),
-      );
+      return new Response(renderErrorPage(), {
+        status: 500,
+        headers: { "content-type": "text/html; charset=utf-8" },
+      });
     }
   },
 };
